@@ -1,0 +1,63 @@
+<!DOCTYPE html>  
+<html lang="fa">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>صفحه ورود</title>  
+    <link rel="stylesheet" href="styles.css">  
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">  
+</head>  
+<body>  
+    <div class="background-image">
+        <div class="container">  
+        <h1>ورود به حساب کاربری</h1>  
+        <form id="loginForm">  
+            <input type="email" id="email" placeholder="ایمیل" required>  
+            <span class="error" id="emailError"></span>  
+            <input type="password" id="password" placeholder="رمز عبور" required>  
+            <span class="error" id="passwordError"></span>  
+            <button type="submit">ورود</button>  
+        </form>  
+        <p>  
+            <a href="signup.html">ثبت نام کنید</a>  
+        </p>  
+    </div> 
+        
+        <img src="saheldarya.jpg" alt="">
+</div> 
+    <script>  
+        document.getElementById('loginForm').addEventListener('submit', function(event) {  
+            event.preventDefault();  
+            const email = document.getElementById('email').value;  
+            const password = document.getElementById('password').value;  
+            let valid = true;  
+
+            // Reset error messages  
+            document.getElementById('emailError').textContent = '';  
+            document.getElementById('passwordError').textContent = '';  
+
+            // Email validation  
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;  
+            if (!emailPattern.test(email)) {  
+                document.getElementById('emailError').textContent = 'ایمیل معتبر نیست.';  
+                valid = false;  
+            }  
+
+            // Check for empty fields  
+            if (email === '') {  
+                document.getElementById('emailError').textContent = 'لطفاً ایمیل را وارد کنید.';  
+                valid = false;  
+            }  
+            if (password === '') {  
+                document.getElementById('passwordError').textContent = 'لطفاً رمز عبور را وارد کنید.';  
+                valid = false;  
+            }  
+
+            if (valid) {  
+                alert('ورود موفقیت‌آمیز!');  
+                // اینجا می‌توانید منطق ورود را پیاده‌سازی کنید  
+            }  
+        });  
+    </script>  
+</body>  
+</html>
